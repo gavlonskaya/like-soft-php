@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Button Order</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+      .button {
+        width: 35px;
+        height: 20px;
+        margin-bottom: 6px;
+        text-align: center;
+        background-color: white;
+        border: 1px solid blue;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="button" id="button1">1</div>
+      <div class="button" id="button2">2</div>
+      <div class="button" id="button3">3</div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        $(".button").click(function () {
+          var buttons = $(".button");
+          var firstButton = buttons.first();
+          buttons.slice(1).each(function () {
+            $(this).insertBefore(firstButton);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
